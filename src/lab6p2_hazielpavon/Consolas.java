@@ -7,18 +7,18 @@ public class Consolas {
 
     private int identificacion;
     private String fabricante;
-    private Date date;
+    private int anosuso;
     private double precio;
     private ArrayList juegos = new ArrayList();
     private String modelo;
 
-    public Consolas(int identificacion, String fabricante, Date date, double precio, String modelo) {
+    public Consolas(int identificacion, String fabricante, int anosuso, double precio, String modelo) {
         this.identificacion = identificacion;
         this.fabricante = fabricante;
-        this.date = date;
+        this.anosuso = anosuso;
         this.precio = precio;
         this.modelo = modelo;
-
+        this.juegos = new ArrayList(); 
     }
 
     public Consolas() {
@@ -40,12 +40,12 @@ public class Consolas {
         this.fabricante = fabricante;
     }
 
-    public Date getDate() {
-        return date;
+    public int getanosuso() {
+        return anosuso;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setanosuso(int anosuso) {
+        this.anosuso = anosuso;
     }
 
     public double getPrecio() {

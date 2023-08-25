@@ -1,5 +1,8 @@
-
 package lab6p2_hazielpavon;
+
+import java.util.ArrayList;
+import java.util.Date;
+import javax.swing.table.DefaultTableModel;
 
 public class Main extends javax.swing.JFrame {
 
@@ -21,24 +24,25 @@ public class Main extends javax.swing.JFrame {
 
         Ds_Portatil = new javax.swing.JDialog();
         jPanel2 = new javax.swing.JPanel();
-        jTextField4 = new javax.swing.JTextField();
+        Ds_Pantalla = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        Ds_Bateria = new javax.swing.JTextField();
+        Ds_portatil = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
+        Ds_si = new javax.swing.JRadioButton();
+        Ds_no = new javax.swing.JRadioButton();
         jLabel13 = new javax.swing.JLabel();
         Ds_Estacionaria = new javax.swing.JDialog();
         jPanel3 = new javax.swing.JPanel();
-        jButton3 = new javax.swing.JButton();
-        jTextField6 = new javax.swing.JTextField();
+        Ds_botonestacionario = new javax.swing.JButton();
+        Ds_NumeroControles = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
+        Ds_Tipoconexion = new javax.swing.JTextField();
+        Ds_Almacenamiento = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         Ds_Juegos = new javax.swing.JDialog();
         jPanel6 = new javax.swing.JPanel();
@@ -63,6 +67,11 @@ public class Main extends javax.swing.JFrame {
         jTextField12 = new javax.swing.JTextField();
         jButton5 = new javax.swing.JButton();
         Ds_Tipobottongroup = new javax.swing.ButtonGroup();
+        Ds_Sekeccion = new javax.swing.ButtonGroup();
+        Ds_Menuprincipal = new javax.swing.JPopupMenu();
+        Ds_AgregarJuego = new javax.swing.JMenuItem();
+        Ds_Modificarconsolas = new javax.swing.JMenuItem();
+        Ds_EliminarConsolas = new javax.swing.JMenuItem();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -100,10 +109,21 @@ public class Main extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel12.setText("Bateria:");
 
-        jButton2.setText("Agregar");
+        Ds_portatil.setText("Agregar");
+        Ds_portatil.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Ds_portatilMouseClicked(evt);
+            }
+        });
 
         jLabel14.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
         jLabel14.setText("Portatil");
+
+        Ds_Sekeccion.add(Ds_si);
+        Ds_si.setText("SI");
+
+        Ds_Sekeccion.add(Ds_no);
+        Ds_no.setText("No");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -114,23 +134,25 @@ public class Main extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(15, 15, 15)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel10))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(Ds_Pantalla, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
+                                .addComponent(Ds_Bateria, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel11)
-                                    .addComponent(jLabel12))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jLabel10)))
+                                .addComponent(Ds_si, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Ds_no, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(130, 130, 130)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(Ds_portatil, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(127, 127, 127)
                         .addComponent(jLabel14)))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -140,17 +162,18 @@ public class Main extends javax.swing.JFrame {
                 .addGap(32, 32, 32)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Ds_Pantalla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Ds_Bateria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addComponent(jButton2)
+                    .addComponent(Ds_si)
+                    .addComponent(Ds_no))
+                .addGap(34, 34, 34)
+                .addComponent(Ds_portatil)
                 .addContainerGap(51, Short.MAX_VALUE))
         );
 
@@ -184,7 +207,17 @@ public class Main extends javax.swing.JFrame {
                     .addGap(0, 5, Short.MAX_VALUE)))
         );
 
-        jButton3.setText("Agregar");
+        Ds_botonestacionario.setText("Agregar");
+        Ds_botonestacionario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Ds_botonestacionarioMouseClicked(evt);
+            }
+        });
+        Ds_botonestacionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Ds_botonestacionarioActionPerformed(evt);
+            }
+        });
 
         jLabel15.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel15.setText("Tipo de conexion:");
@@ -213,13 +246,13 @@ public class Main extends javax.swing.JFrame {
                                     .addComponent(jLabel17))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(Ds_NumeroControles, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Ds_Almacenamiento, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Ds_Tipoconexion, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jLabel15)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(130, 130, 130)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(Ds_botonestacionario, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(86, 86, 86)
                         .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -233,17 +266,17 @@ public class Main extends javax.swing.JFrame {
                 .addGap(32, 32, 32)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Ds_NumeroControles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Ds_Almacenamiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Ds_Tipoconexion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
-                .addComponent(jButton3)
+                .addComponent(Ds_botonestacionario)
                 .addContainerGap(58, Short.MAX_VALUE))
         );
 
@@ -403,8 +436,7 @@ public class Main extends javax.swing.JFrame {
                                 .addGap(43, 43, 43))
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addGap(28, 28, 28)
-                                .addComponent(jLabel26)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addComponent(jLabel26)))
                         .addGap(47, 47, 47)
                         .addComponent(jLabel22)
                         .addGap(18, 18, 18))
@@ -435,6 +467,20 @@ public class Main extends javax.swing.JFrame {
             Ds_JuegosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
+
+        Ds_AgregarJuego.setText("jMenuItem1");
+        Ds_AgregarJuego.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Ds_AgregarJuegoActionPerformed(evt);
+            }
+        });
+        Ds_Menuprincipal.add(Ds_AgregarJuego);
+
+        Ds_Modificarconsolas.setText("jMenuItem2");
+        Ds_Menuprincipal.add(Ds_Modificarconsolas);
+
+        Ds_EliminarConsolas.setText("jMenuItem3");
+        Ds_Menuprincipal.add(Ds_EliminarConsolas);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -482,47 +528,23 @@ public class Main extends javax.swing.JFrame {
 
         Ds_Tabladeconsolas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+
             },
             new String [] {
-                "Nombre", "Años ", "Fabricante", "Precio", "Modelo", "Juegos disponibles", "Tipo", "Identificacion"
+                "Años ", "Fabricante", "Precio", "Modelo", "Juegos disponibles", "Tipo", "Identificacion"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Integer.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Integer.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
+            }
+        });
+        Ds_Tabladeconsolas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Ds_TabladeconsolasMouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(Ds_Tabladeconsolas);
@@ -549,12 +571,18 @@ public class Main extends javax.swing.JFrame {
                             .addGap(172, 172, 172))
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel8))
-                                .addComponent(jLabel3)
-                                .addComponent(jLabel4))
-                            .addGap(2, 2, 2)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addGap(24, 24, 24)
+                                            .addComponent(jLabel7))
+                                        .addComponent(jLabel3))
+                                    .addGap(2, 2, 2))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(Ds_Identificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(Ds_Modelo, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -598,7 +626,7 @@ public class Main extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Ds_Precio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Ds_Modelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 197, Short.MAX_VALUE)
@@ -690,35 +718,136 @@ public class Main extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Ds_AgregarConsolasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Ds_AgregarConsolasMouseClicked
-      
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
+        int id, uso, jdisp;
+        String model, fab, tip;
+        double prec;
+
+        id = Integer.parseInt(Ds_Identificacion.getText());
+
+        uso = (int) Ds_Anosuso.getValue();
+
+        jdisp = (int) Ds_Juegosdisponibles.getValue();
+
+        model = Ds_Modelo.getText();
+
+        fab = Ds_Fabricante.getText();
+
+        prec = Integer.parseInt(Ds_Precio.getText());
+
+        if (Ds_EstacionariaRadio.isSelected()) {
+
+            Ds_Estacionaria.pack();
+            Ds_Estacionaria.setModal(true);
+            Ds_Estacionaria.setLocationRelativeTo(null);
+            Ds_Estacionaria.setVisible(true);
+
+            tip = "Estacionaria";
+
+            DefaultTableModel modelo = (DefaultTableModel) Ds_Tabladeconsolas.getModel();
+
+            Object[] datos = new Object[8];
+
+            datos[0] = uso;
+            datos[1] = fab;
+            datos[2] = prec;
+            datos[3] = model;
+            datos[4] = "";
+            datos[5] = tip;
+            datos[6] = id;
+
+            modelo.addRow(datos);
+
+            Ds_Tabladeconsolas.setModel(modelo);
+
+            Consolas C = new Estacionaria(numcon, space, conex, id, fab, uso, prec, model);
+
+            consolas.add(C);
+
+        } else if (Ds_RadioPortatil.isSelected()) {
+
+            Ds_Portatil.pack();
+            Ds_Portatil.setModal(true);
+            Ds_Portatil.setLocationRelativeTo(null);
+            Ds_Portatil.setVisible(true);
+
+            tip = "Portatil";
+
+            DefaultTableModel modelo = (DefaultTableModel) Ds_Tabladeconsolas.getModel();
+
+            Object[] datos = new Object[8];
+
+            datos[0] = uso;
+            datos[1] = fab;
+            datos[2] = prec;
+            datos[3] = model;
+            datos[4] = "";
+            datos[5] = tip;
+            datos[6] = id;
+
+            modelo.addRow(datos);
+
+            Ds_Tabladeconsolas.setModel(modelo);
+
+            Consolas C = new Portatil(tampan, bat, estuche, id, fab, uso, prec, model);
+
+            consolas.add(C);
+
+        }
+
+
     }//GEN-LAST:event_Ds_AgregarConsolasMouseClicked
+
+    private void Ds_portatilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Ds_portatilMouseClicked
+
+        tampan = Ds_Pantalla.getText();
+        bat = Integer.parseInt(Ds_Bateria.getText());
+
+        if (Ds_si.isSelected()) {
+            estuche = true;
+        } else {
+            estuche = false;
+        }
+
+        Ds_Portatil.dispose();
+
+    }//GEN-LAST:event_Ds_portatilMouseClicked
+
+    private void Ds_botonestacionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ds_botonestacionarioActionPerformed
+
+    }//GEN-LAST:event_Ds_botonestacionarioActionPerformed
+
+    private void Ds_botonestacionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Ds_botonestacionarioMouseClicked
+
+        numcon = Integer.parseInt(Ds_NumeroControles.getText());
+        space = Integer.parseInt(Ds_Almacenamiento.getText());
+        conex = Ds_Tipoconexion.getText();
+
+        Ds_Estacionaria.dispose();
+
+
+    }//GEN-LAST:event_Ds_botonestacionarioMouseClicked
+
+    private void Ds_TabladeconsolasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Ds_TabladeconsolasMouseClicked
+
+        if (evt.isMetaDown()) {
+
+            Ds_Menuprincipal.show(Ds_Tabladeconsolas, evt.getX(), evt.getY());
+
+        }
+
+
+    }//GEN-LAST:event_Ds_TabladeconsolasMouseClicked
+
+    private void Ds_AgregarJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ds_AgregarJuegoActionPerformed
+
+        Ds_Juegos.pack();
+        Ds_Juegos.setModal(true);
+        Ds_Juegos.setLocationRelativeTo(null);
+        Ds_Juegos.setVisible(true);
+
+
+    }//GEN-LAST:event_Ds_AgregarJuegoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -734,16 +863,24 @@ public class Main extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Main.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Main.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Main.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Main.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -757,21 +894,33 @@ public class Main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Ds_AgregarConsolas;
+    private javax.swing.JMenuItem Ds_AgregarJuego;
+    private javax.swing.JTextField Ds_Almacenamiento;
     private javax.swing.JSpinner Ds_Anosuso;
+    private javax.swing.JTextField Ds_Bateria;
+    private javax.swing.JMenuItem Ds_EliminarConsolas;
     private javax.swing.JDialog Ds_Estacionaria;
     private javax.swing.JRadioButton Ds_EstacionariaRadio;
     private javax.swing.JTextField Ds_Fabricante;
     private javax.swing.JTextField Ds_Identificacion;
     private javax.swing.JDialog Ds_Juegos;
     private javax.swing.JSpinner Ds_Juegosdisponibles;
+    private javax.swing.JPopupMenu Ds_Menuprincipal;
     private javax.swing.JTextField Ds_Modelo;
+    private javax.swing.JMenuItem Ds_Modificarconsolas;
+    private javax.swing.JTextField Ds_NumeroControles;
+    private javax.swing.JTextField Ds_Pantalla;
     private javax.swing.JDialog Ds_Portatil;
     private javax.swing.JTextField Ds_Precio;
     private javax.swing.JRadioButton Ds_RadioPortatil;
+    private javax.swing.ButtonGroup Ds_Sekeccion;
     private javax.swing.JTable Ds_Tabladeconsolas;
     private javax.swing.ButtonGroup Ds_Tipobottongroup;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JTextField Ds_Tipoconexion;
+    private javax.swing.JButton Ds_botonestacionario;
+    private javax.swing.JRadioButton Ds_no;
+    private javax.swing.JButton Ds_portatil;
+    private javax.swing.JRadioButton Ds_si;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private com.toedter.calendar.JCalendar jCalendar1;
@@ -819,13 +968,22 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
+
+    ArrayList consolas = new ArrayList();
+
+    String tampan;
+
+    int bat;
+
+    boolean estuche;
+
+    int numcon;
+
+    String conex;
+
+    int space;
+
 }

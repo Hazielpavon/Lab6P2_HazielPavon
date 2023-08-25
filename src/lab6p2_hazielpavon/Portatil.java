@@ -1,18 +1,25 @@
-
 package lab6p2_hazielpavon;
 
-public class Portatil extends Consolas{
-    
-    
-    private String tampantalla; 
-    private int bateria; 
-    private String estuche; 
+public class Portatil extends Consolas {
 
-    public Portatil(String tampantalla, int bateria, String estuche) {
+    private String tampantalla;
+    private int bateria;
+    private boolean estuche;
+
+    public Portatil(String tampantalla, int bateria, boolean estuche, int identificacion, String fabricante, int anosuso, double precio, String modelo) {
+        super(identificacion, fabricante, anosuso, precio, modelo);
         this.tampantalla = tampantalla;
         this.bateria = bateria;
         this.estuche = estuche;
     }
+
+    public Portatil(String tampantalla, int bateria, boolean estuche) {
+        this.tampantalla = tampantalla;
+        this.bateria = bateria;
+        this.estuche = estuche;
+    }
+
+  
 
     public String getTampantalla() {
         return tampantalla;
@@ -30,22 +37,11 @@ public class Portatil extends Consolas{
         this.bateria = bateria;
     }
 
-    public String getEstuche() {
+    public boolean isEstuche() {
         return estuche;
     }
 
-    public void setEstuche(String estuche) {
+    public void setEstuche(boolean estuche) {
         this.estuche = estuche;
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }
