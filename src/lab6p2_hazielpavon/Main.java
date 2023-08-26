@@ -921,6 +921,10 @@ public class Main extends javax.swing.JFrame {
         Ds_ListarLosjuegos.setLocationRelativeTo(null);
         Ds_ListarLosjuegos.setVisible(true);
 
+        
+        
+        
+        
 
     }//GEN-LAST:event_Ds_ListarJuegosActionPerformed
 
