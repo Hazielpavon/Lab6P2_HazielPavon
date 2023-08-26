@@ -7,8 +7,6 @@ import javax.swing.table.DefaultTableModel;
 
 public class Main extends javax.swing.JFrame {
 
-   
-
     /**
      * Creates new form Main
      */
@@ -906,9 +904,13 @@ public class Main extends javax.swing.JFrame {
                 = (DefaultListModel) Ds_List.getModel();
 
         Ds_Tabladeconsolas.getSelectedRow();
-        
-        
-        nuilateamo(Ds_Tabladeconsolas.getSelectedRow()); 
+
+        Consolas cons = (Consolas) consolas.get(Ds_Tabladeconsolas.getSelectedRow());
+
+        for (int i = 0; i < cons.getJuegos().size(); i++) {
+            modelo.addElement(i);
+        }
+
 
     }//GEN-LAST:event_Ds_TabladeconsolasMouseClicked
 
@@ -971,6 +973,10 @@ public class Main extends javax.swing.JFrame {
 
         Juegos j = new Juegos(nombreJuego, desc, fechaJ, precioJ, estado, rentable, agregado, cantidad);
 
+        Consolas consola = (Consolas) consolas.get(Ds_Tabladeconsolas.getSelectedRow());
+
+        consola.agregarJuego(j);
+
 
     }//GEN-LAST:event_Ds_agregarjuegosMouseClicked
 
@@ -1029,43 +1035,6 @@ public class Main extends javax.swing.JFrame {
         });
     }
 
-    public void nuilateamo(int numeroconsola) {
-        String nombreJuego, desc;
-        double precioJ;
-        Date fechaJ;
-        String estado;
-        int cantidad;
-        boolean rentable, agregado;
-
-        nombreJuego = Ds_Nombredelosjuegos.getText();
-        desc = Ds_Descripcion.getText();
-        fechaJ = Ds_Fechadeljuego.getDate();
-        precioJ = Integer.parseInt(Ds_Preciodeljuego.getText());
-
-        if (Ds_Estadonuevo.isSelected()) {
-            estado = "Nuevo";
-        } else {
-            estado = "Viejo";
-        }
-
-        if (Ds_Norentable.isSelected()) {
-            rentable = false;
-        } else {
-            rentable = true;
-
-        }
-
-        if (Ds_noagregado.isSelected()) {
-            agregado = false;
-        } else {
-            agregado = true;
-        }
-
-        cantidad = (int) Ds_Cantidaddejuegos.getValue();
-
-        Juegos j = new Juegos(nombreJuego, desc, fechaJ, precioJ, estado, rentable, agregado, cantidad);
-
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup Ds_Agregado;
@@ -1164,6 +1133,5 @@ public class Main extends javax.swing.JFrame {
     String conex;
 
     int space;
-    
- 
+
 }

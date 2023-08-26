@@ -18,7 +18,7 @@ public class Consolas {
         this.anosuso = anosuso;
         this.precio = precio;
         this.modelo = modelo;
-        this.juegos = new ArrayList(); 
+        this.juegos = new ArrayList();
     }
 
     public Consolas() {
@@ -72,4 +72,7 @@ public class Consolas {
         this.modelo = modelo;
     }
 
+    public void agregarJuego(Object juego) {
+        juegos.add(juego);
+    }
 }
